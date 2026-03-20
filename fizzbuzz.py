@@ -10,6 +10,9 @@ else:
     # Ja lietotājs aizmirsa ierakstīt skaitli, pajautājam to
     n = int(input("N netika norādīts. Ievadi ciklu skaitu N: "))
 
+try:
+    n = int(ievade) #Ja lietotājs ievadīs burtu, int() funkcija "salūzīs" un izmetīs ValueError. Tāpēc izmantojam try-except bloku, lai noķertu šo kļūdu un informētu lietotāju par nepareizu ievadi.
+
 print(f"\n--- Python FIZZBUZZ līdz {n} ---")
 
 for skaitlis in range(1, n + 1):  # uzsākst cikls no 1 līdz N (ieskaitot)
@@ -25,3 +28,6 @@ for skaitlis in range(1, n + 1):  # uzsākst cikls no 1 līdz N (ieskaitot)
         print("Jazz")
     else:
         print(skaitlis)
+
+except ValueError:
+    print("Kļūda! Lūdzu, ievadiet veselu skaitli, nevis burtus.")
